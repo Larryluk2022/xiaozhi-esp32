@@ -1,4 +1,4 @@
- #ifndef _BOARD_CONFIG_H_
+#ifndef _BOARD_CONFIG_H_
 #define _BOARD_CONFIG_H_
 
 #include <driver/gpio.h>
@@ -40,23 +40,17 @@
 #define VOLUME_UP_BUTTON_GPIO   GPIO_NUM_40
 #define VOLUME_DOWN_BUTTON_GPIO GPIO_NUM_39
 
+// ====================================================================
+// 【螢幕強制 0.91 吋解鎖配置】直接指定 128x32，徹底繞過雲端選單干擾
+// ====================================================================
 #define DISPLAY_SDA_PIN GPIO_NUM_41
 #define DISPLAY_SCL_PIN GPIO_NUM_42
 #define DISPLAY_WIDTH   128
-
-#if CONFIG_OLED_SSD1306_128X32
 #define DISPLAY_HEIGHT  32
-#elif CONFIG_OLED_SSD1306_128X64
-#define DISPLAY_HEIGHT  64
-#elif CONFIG_OLED_SH1106_128X64
-#define DISPLAY_HEIGHT  64
-#define SH1106
-#else
-#error "OLED display type is not selected"
-#endif
 
 #define DISPLAY_MIRROR_X true
 #define DISPLAY_MIRROR_Y true
+// ====================================================================
 
 // A MCP Test: Control a lamp
 #define LAMP_GPIO GPIO_NUM_18
